@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--inclui o conteúdo do header-->
+    {% include "model-header.html" %}
+</head>
+<body>
+    <!--todo código em agenda ou qualquer .html vai aparecer aqui a baixo do header a cima do footer-->
+    {% block content %} {% endblock %}
+
+    <!--inclui o conteúdo body/footer-->
+    {% include "model-footer.html" %}
+</body>
+</html>

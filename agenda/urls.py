@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core import views
+# dessa forma consigo redirecionar direto no urls.py sem passar por uma view.py
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('agenda/', views.lista_eventos),
+    #Quando não tiver direcionamento, direcionar para o path /agenda/
+    #Método 1
+    #path('', views.index)
+    #Método 2 não passa por uma view igual método 1
+    path('', RedirectView.as_view(url='/agenda/'))
 ]
