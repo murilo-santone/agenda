@@ -26,5 +26,8 @@ urlpatterns = [
     #Método 1
     #path('', views.index)
     #Método 2 não passa por uma view igual método 1
-    path('', RedirectView.as_view(url='/agenda/'))
+    path('', RedirectView.as_view(url='/agenda/')),
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login),
+    path('logout/', views.logout_user),
 ]

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <!-- form criado para ser validado e autenticado com action submit usando method 'POST'
+    por questão de segurança sempre ao validar um acesso de login, usar o certificado CSRF-->
+    <form action="submit" method="POST">{% csrf_token %}
+        <!--Alinhamento no centro da página-->
+        <div align="center">
+            <!--Criando uma caixa de texto pro login-->
+            <label>Usuário:</label>
+            <input type="text" name="username">
+            <!--Criando uma caixa de password pro login-->
+            <label>Senha:</label>
+            <input type="password" name="password">
+            <!--Criando botão para autenticação-->
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+
+    <!--Tratando erro caso usuário ou senha sejam inválidos-->
+    <div align="center">
+        {% for message in messages %}
+            <strong>Erro! </strong> {{ message }}
+        {% endfor %}
+    </div>
+
+</body>
+</html>
