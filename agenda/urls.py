@@ -22,11 +22,15 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('agenda/', views.lista_eventos),
+    path('agenda/evento/', views.evento),
+    path('agenda/evento/submit', views.submit_evento),
+    #================================================================
     #Quando não tiver direcionamento, direcionar para o path /agenda/
     #Método 1
     #path('', views.index)
     #Método 2 não passa por uma view igual método 1
     path('', RedirectView.as_view(url='/agenda/')),
+    #=================================================================
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user),
