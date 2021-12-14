@@ -16,6 +16,10 @@ class Evento(models.Model):
     def __str__(self):
         return self.titulo
 
-    #Formatação de data e hora para padrão BR
+    #Formatação de data e hora para poder mostrar ao usuário
     def get_data_evento(self):
         return self.data_evento.strftime('%d/%m/%y, às %H:%M')
+
+    #Formatação de data e hora para manter a mesma data e hora na hora de editar o evento
+    def get_data_input_evento(self):
+        return self.data_evento.strftime('%Y-%m-%dT%H:%M')
